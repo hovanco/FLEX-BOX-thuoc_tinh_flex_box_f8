@@ -1,0 +1,347 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #ccc;
+}
+
+/* Navbar */
+.nav {
+  min-height: 42px;
+  background-color: #EF5122;
+
+  display: flex;
+  /* flex-direction: row; mặc định của flex */
+
+  justify-content: space-between;
+  /*
+    Ngoài justify-content: space-between, các bạn có thể
+    sử dụng 1 trong 2 cách mình
+    comment phía dưới
+  */
+}
+
+/* Cách này */
+/* .nav-list:nth-child(1) {
+margin-right: auto;
+} */
+
+/* Hoặc cách này */
+/* .nav-list:nth-child(2) {
+margin-left: auto;
+} */
+
+.nav-list {
+  padding-left: 0;
+  margin: auto 16px;
+}
+
+.nav-item {
+  color: #fff;
+  list-style: none;
+  margin: 0 8px;
+  display: inline-block;
+}
+
+/* Form layout */
+.form-container {
+  max-width: 720px;
+  padding: 32px;
+  margin: 36px auto 0 auto;
+  background-color: #fff;
+}
+
+.form__row {
+  padding: 8px 0;
+
+  display: flex;
+  /* flex-direction: row; mặc định của flex */
+}
+
+.form__label {
+  min-width: 90px;
+}
+
+.form__input {
+  flex: 1;
+  /*  flex: 1; 
+  là viết tắt của:
+  flex-grow: 1
+  flex-shrink: 1
+  flex-basis: 1
+  */
+}
+
+/* Column layout */
+.column-layout {
+  margin-top: 36px;
+  padding: 12px 0;
+  background-color: #fff;
+
+  display: flex;
+  /* flex-direction: row; mặc định của flex */
+}
+
+.column-item {
+  padding: 0 16px;
+}
+
+.sidebar-one {
+  flex: 1;
+  /*  flex: 1; 
+  là viết tắt của:
+  flex-grow: 1
+  flex-shrink: 1
+  flex-basis: 1
+  */
+  
+  /* order: 2; sắp xếp thứ tự xuất hiện 
+  của các box
+  */
+}
+
+.sidebar-two {
+  flex: 1;
+  /*  flex: 1; 
+  là viết tắt của:
+  flex-grow: 1
+  flex-shrink: 1
+  flex-basis: 1
+  */
+
+  /* order: 3; sắp xếp thứ tự xuất hiện 
+  của các box */
+}
+
+.main-column {
+  flex: 3;
+  /*  flex: 3; 
+  là viết tắt của:
+  flex-grow: 3
+  flex-shrink: 3
+  flex-basis: 3
+  */
+
+  /* order: 1; sắp xếp thứ tự xuất hiện 
+  của các box */
+}
+
+/* Feature layout */
+.feature-layout {
+  margin-top: 36px;
+
+  display: flex;
+  /* flex-direction: row; mặc định của flex */
+
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/* PC, Tablet */
+@media (min-width: 740px) {
+  .feature-layout {
+    flex-direction: row;
+  }
+}
+
+.feature-item {
+  padding: 12px 16px;
+  margin-top: 16px;
+  flex-basis: 30%; 
+  /* flex-basis: 30%; chia size cho div  */
+}
+
+.feature-item:nth-child(1) {
+  background-color: rgb(192, 227, 222);
+}
+
+.feature-item:nth-child(2) {
+  background-color: rgb(227, 200, 192);
+}
+
+.feature-item:nth-child(3) {
+  background-color: rgb(226, 192, 227);
+}
+
+/* Wrap layout */
+.wrap-layout {
+  background-color: #fff;
+  margin-top: 36px;
+  padding: 12px 0 32px 0;
+
+  display: flex;
+  /* flex-direction: row; mặc định của flex */
+
+  justify-content: space-around;
+  flex-wrap: wrap;
+  /* flex-wrap: wrap-reverse;: row; cac div xuong dong o phia tren */
+  /* flex-wrap: wrap;: row; cac div xuong dong o phia duoi */
+}
+
+.wrap-layout__item {
+  width: 148px;
+  height: 90px;
+  color: #fff;
+  text-align: center; /* nằm chính giữa theo trục hoành */
+  line-height: 90px; /* nằm chính giữa theo trục tùng */
+  font-size: 48px;
+  font-weight: 700;
+  margin-top: 20px;
+  background-color: #EF5122;
+}
+
+/* Center layout */
+.center-layout {
+  background-color: rgb(192, 227, 194);
+  margin: 36px auto 0 auto;
+  padding: 32px 0;
+  max-width: 640px;
+  height: 360px;
+  display: flex;
+}
+
+.center-layout__item {
+  font-size: 42px;
+  font-weight: 700;
+  /*
+    Cũng có cách khác là các bạn
+    thêm 2 thuộc tính vào flex-container:
+    justify-content: center;
+    align-item: center;
+
+    cũng cho kết quả tương tự,
+    nhưng cách margin: auto này
+    ngắn gọn hơn
+  */
+  margin: auto;
+}
+
+/* Chart layout */
+.chart-layout {
+  margin: 36px auto 0 auto;
+  padding: 32px 0;
+  height: 320px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+}
+
+.chart-layout__item {
+  align-self: flex-end;
+  width: 60px;
+  color: #fff;
+  text-align: center;
+  height: var(--percent);
+  background-color: #EF5122;
+  animation: growth ease-in 0.5s;
+}
+
+/* chart có kích thước tăng dân khi hiển ra  */
+@keyframes growth {
+  from {
+      opacity: 0;
+      height: calc(var(--percent) - 50%);
+  }
+  to {
+      opacity: 1;
+      height: var(--percent);
+  }
+}
+
+/* End */
+.the-end {
+  margin: 12px auto 48px auto;
+  padding: 32px 0;
+  max-width: 740px;
+  min-height: 360px;
+  display: flex; 
+  /*
+   display: flex; 
+   làm cho the-end__first
+   và the-end__second nằm trên 1 dòng
+  */
+  flex-direction: row;
+  /* flex-direction: row; mặc định của flex */
+
+  /* flex-direction: row-reverse; */
+  /* flex-direction: row-reverse; làm cho
+  the-end__second đứng trước the-end__first 
+  và nằn trên cùng 1 dòng
+  */
+}
+
+.the-end__first {
+  flex: 1;
+  /*
+    flex: 1;
+    làm cho the-end__first
+    và the-end__second có chiều rộng = nhau
+    */
+  padding: 4px 16px;
+  background-color: #fff;
+}
+
+.the-end__second {
+  flex: 1;
+  /*
+    flex: 1;
+    làm cho the-end__second va the-end__first
+    có chiều rộng = nhau
+    */
+  display: flex; 
+  /*
+    display: flex;
+    làm cho the-end__second-one va
+    the-end__second-two
+    nằm cùng hàng với nhau
+  */
+
+  flex-direction: column;
+  /* flex-direction: column-reverse; */
+
+  /*
+    flex-direction: column;
+    làm cho the-end__second-one va
+    the-end__second-two
+    nằm cùng column với nhau
+
+    flex-direction: column-reverse;
+    làm cho the-end__second-two nằm trên
+    the-end__second-one  và cùng nằm trên
+    cùng column với nhau
+    */
+}
+
+.the-end__second-one {
+  flex: 1; /* = vs chiều ngang của 
+  the-end__second-two  */
+  padding: 4px 16px;
+  background-color: rgb(227, 192, 214);
+}
+
+.the-end__second-two {
+  flex: 1;
+  /* = vs chiều ngang của 
+  the-end__second-one  */
+  padding: 4px 16px;
+  background-color: rgb(192, 210, 227);
+}
+
+/* flex-grow là cách viết gọn của 
+  flex-direction và flex-wrap
+
+  vd:
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  => flex-grow: row wrap;
+  */
+
